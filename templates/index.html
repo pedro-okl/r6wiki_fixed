@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainbow Six Wiki</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+ </head>
+ <body>
+
+    <aside class="sidebar">
+        <div class="logo-lateral">R6</div>
+    </aside>
+
+    <header class="top-header">
+        <div class="header-content">
+            <h1><span class="rainbow">RAINBOW SIX</span> <span class="wiki-text">WIKI</span></h1>
+        </div>
+        <div class="header-actions">
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span class="username-display" id="usernameDisplay"></span>
+                <button class="logout-button" id="logoutButton" aria-label="Sair">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                    </svg>
+                </button>
+            </div>
+            <a href="account.html" class="account-button" id="accountButton" aria-label="Conta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Lateral Direito -->
+    <aside class="right-sidebar" id="rightSidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-menu" id="closeMenu" aria-label="Fechar menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <a href="info.html" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+                </svg>
+                <span>Informações</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Overlay para fechar o menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+        
+        <div class="grid">
+
+   
+            <a href="op.html" class="card">
+                <img src="../static/css/op.jpg" alt="Deimos">
+            </a> 
+
+      
+            <a href="info.html" class="card">
+                <img src="../static/css/scrim.jpg" alt="Scrims">
+            </a>
+
+       
+            <a href="esports.html" class="card">
+                <img src="../static/css/e-sports.webp" alt="Esports">
+            </a>
+
+            
+            <a href="campeonatos.html" class="card">
+                <img src="../static/css/trilha.webp" alt="Major">
+            </a>
+
+        </div>
+    </main>
+
+   
+    <footer>
+        <p>créditos: link da comunidade r6</p>
+    </footer>
+
+    <script>
+        const API_BASE_URL = 'http://localhost:5000/api';
+
+        // Verificar autenticação ao carregar a página
+        window.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch(`${API_BASE_URL}/check-auth`, {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                if (data.authenticated) {
+                    // Mostrar informações do usuário
+                    document.getElementById('usernameDisplay').textContent = data.user.username;
+                    document.getElementById('userInfo').style.display = 'flex';
+                    document.getElementById('accountButton').style.display = 'none';
+                } else {
+                    // Mostrar botão de conta
+                    document.getElementById('userInfo').style.display = 'none';
+                    document.getElementById('accountButton').style.display = 'flex';
+                }
+            } catch (error) {
+                console.error('Erro ao verificar autenticação:', error);
+            }
+        });
+
+        // Logout
+        document.getElementById('logoutButton').addEventListener('click', async () => {
+            try {
+                const response = await fetch(`${API_BASE_URL}/logout`, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Recarregar a página
+                    window.location.reload();
+                }
+            } catch (error) {
+                console.error('Erro ao fazer logout:', error);
+            }
+        });
+
+        // Menu lateral
+        const menuToggle = document.getElementById('menuToggle');
+        const rightSidebar = document.getElementById('rightSidebar');
+        const closeMenu = document.getElementById('closeMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        menuToggle.addEventListener('click', () => {
+            rightSidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeSidebar() {
+            rightSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeMenu.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    </script>
+
+</body>
+</html>

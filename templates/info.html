@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o Jogo – Rainbow Six Wiki</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-lateral">R6</div>
+    </aside>
+
+    <header class="top-header">
+        <div class="header-content">
+            <h1><span class="rainbow">RAINBOW SIX</span> <span class="wiki-text">WIKI</span></h1>
+        </div>
+        <div class="header-actions">
+            <a href="account.html" class="account-button" aria-label="Conta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Lateral Direito -->
+    <aside class="right-sidebar" id="rightSidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-menu" id="closeMenu" aria-label="Fechar menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <a href="index.html" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                </svg>
+                <span>Início</span>
+            </a>
+            <a href="op.html" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.326 4.754c.083.204.214.34.403.34a.375.375 0 0 0 .25-.129c.155-.207.351-.293.351-.68 0-.593-.234-.804-.532-.909v-.03c.196-.11.408-.313.408-.83 0-.616.262-.977.976-.977.588 0 .954.289.954.85 0 .486-.217.689-.588.689-.179 0-.322-.04-.439-.116l-.004.027c-.005.111-.087.2-.19.2z"/>
+                </svg>
+                <span>Operadores</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Overlay para fechar o menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="content">
+        <div class="page-header">
+            <h2 class="page-title">Sobre Rainbow Six Siege</h2>
+            <p class="page-subtitle">Informações gerais sobre o jogo</p>
+        </div>
+
+        <div class="info-section">
+            <section class="info-card">
+                <h3>Informações Gerais</h3>
+                <p>
+                    Tom Clancy's Rainbow Six Siege é um jogo tático 5v5 focado em estratégia,
+                    operadores com habilidades únicas e destruição do ambiente.
+                </p>
+            </section>
+
+            <section class="info-card">
+                <h3>Modos de Jogo</h3>
+                <ul class="info-list">
+                    <li>Refém</li>
+                    <li>Bomba</li>
+                    <li>Mata-mata</li>
+                    <li>Jogo de armas</li>
+                </ul>
+            </section>
+
+            <section class="info-card">
+                <h3>Plataformas</h3>
+                <p>PC, PlayStation e Xbox</p>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>créditos: link da comunidade r6</p>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const rightSidebar = document.getElementById('rightSidebar');
+        const closeMenu = document.getElementById('closeMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        menuToggle.addEventListener('click', () => {
+            rightSidebar.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeSidebar() {
+            rightSidebar.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        closeMenu.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+    </script>
+
+</body>
+</html>
