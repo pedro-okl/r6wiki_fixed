@@ -1,5 +1,5 @@
-from flask import Flask, render_template, send_from_directory
-import os
+import os 
+from flask import Flask, render_template, request, redirect, url_for, session, flash  
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
 
@@ -19,10 +19,6 @@ def op():
 def info():
     return render_template('info.html')
 
-# Serve other static paths (Render will serve the static folder automatically, but keep for safety)
-@app.route('/static/<path:filename>')
-def static_files(filename):
-    return send_from_directory(os.path.join(app.root_path, 'static'), filename)
+if __name__ == "__main__":
+    app.run(debug=True) 
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)

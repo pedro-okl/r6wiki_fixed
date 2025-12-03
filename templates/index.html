@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rainbow Six Wiki</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
  </head>
  <body>
 
@@ -69,22 +69,22 @@
 
    
             <a href="{{ url_for('op') }}" class="card">
-                <img src="../static/css/op.jpg" alt="Deimos">
+                <img src="{{url_for('static', filename='assets/op.jpg')}}" alt="Deimos">
             </a> 
 
       
             <a href="{{ url_for('info') }}" class="card">
-                <img src="../static/css/scrim.jpg" alt="Scrims">
+                <img src="{{url_for('static', filename='assets/scrim.jpg')}}" alt="Scrims">
             </a>
 
        
             <a href="esports.html" class="card">
-                <img src="../static/css/e-sports.webp" alt="Esports">
+                <img src="{{url_for('static', filename='assets/e-sports.webp')}}" alt="Esports">
             </a>
 
             
             <a href="campeonatos.html" class="card">
-                <img src="../static/css/trilha.webp" alt="Major">
+                <img src="{{url_for('static', filename='assets/trilha.webp')}}" alt="Major">
             </a>
 
         </div>
