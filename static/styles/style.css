@@ -742,6 +742,353 @@ footer {
     border-left-color: #ff4444;
 }
 
+/* ===== PÁGINA DE E-SPORTS ===== */
+.esports-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 40px auto;
+}
+
+.esports-card {
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.esports-card:hover {
+    transform: translateY(-8px);
+    border-color: #ff0000;
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+    background: linear-gradient(135deg, rgba(26, 26, 26, 1) 0%, rgba(15, 15, 15, 1) 100%);
+}
+
+.esports-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 0, 0, 0.2);
+    padding-bottom: 15px;
+}
+
+.esports-card-header h3 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.badge-major {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.3) 0%, rgba(255, 100, 0, 0.3) 100%);
+    color: #ff6600;
+    border: 1px solid rgba(255, 100, 0, 0.5);
+}
+
+.badge-regional {
+    background: rgba(100, 150, 255, 0.2);
+    color: #6496ff;
+    border: 1px solid rgba(100, 150, 255, 0.4);
+}
+
+.esports-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.esports-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 14px;
+}
+
+.esports-info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.esports-info-list li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.esports-info-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.esports-info-section {
+    margin: 60px auto 40px;
+    max-width: 1400px;
+    padding: 0 40px;
+}
+
+.esports-info-section h3 {
+    font-size: 28px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.info-cards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.info-card-small {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(15, 15, 15, 0.7) 100%);
+    border: 2px solid rgba(255, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.info-card-small:hover {
+    border-color: rgba(255, 0, 0, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+}
+
+.info-card-small h4 {
+    margin: 0 0 12px 0;
+    color: #ff0000;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.info-card-small p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ===== PÁGINA DE CAMPEONATOS ===== */
+.championship-timeline {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 0 40px;
+    position: relative;
+}
+
+.championship-timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(255, 0, 0, 0.2) 0%, rgba(255, 0, 0, 0.8) 50%, rgba(255, 0, 0, 0.2) 100%);
+    z-index: 1;
+}
+
+.timeline-item {
+    margin-bottom: 50px;
+    position: relative;
+    display: flex;
+    gap: 40px;
+}
+
+.timeline-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-marker {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ff0000, #ff6600);
+    border: 3px solid #0a0e1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.timeline-content {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    border: 2px solid rgba(255, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    border-color: rgba(255, 0, 0, 0.6);
+    box-shadow: 0 4px 20px rgba(255, 0, 0, 0.3);
+    transform: translateY(-5px);
+}
+
+.timeline-content h3 {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+    color: #ff0000;
+    font-weight: 600;
+}
+
+.timeline-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    font-size: 14px;
+}
+
+.timeline-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timeline-details li {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.timeline-details li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #ff6600;
+}
+
+.timeline-item.final .timeline-marker {
+    width: 80px;
+    height: 80px;
+    font-size: 32px;
+    background: linear-gradient(135deg, #ffd700, #ff6600);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+}
+
+.timeline-item.final .timeline-content {
+    background: linear-gradient(135deg, rgba(255, 0, 0, 0.1) 0%, rgba(255, 100, 0, 0.1) 100%);
+    border-color: rgba(255, 0, 0, 0.6);
+}
+
+/* ===== DICAS PARA COMPETIÇÕES ===== */
+.championship-tips {
+    max-width: 1400px;
+    margin: 60px auto 0;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.5) 0%, rgba(15, 15, 15, 0.5) 100%);
+    border-top: 2px solid rgba(255, 0, 0, 0.3);
+}
+
+.championship-tips h3 {
+    font-size: 28px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.tip-card {
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(15, 15, 15, 0.8) 100%);
+    border: 2px solid rgba(255, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 30px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    border-color: rgba(255, 0, 0, 0.6);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+}
+
+.tip-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.tip-card h4 {
+    margin: 0 0 12px 0;
+    color: #ff0000;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.tip-card p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ===== PAGE HEADER (PARA TODAS AS PÁGINAS) ===== */
+.page-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.page-title {
+    margin: 0 0 10px 0;
+    font-size: 36px;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.page-subtitle {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .top-header h1 {
@@ -820,5 +1167,65 @@ footer {
     
     .info-card h3 {
         font-size: 20px;
+    }
+
+    /* E-Sports responsivos */
+    .esports-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .esports-card {
+        padding: 20px;
+    }
+
+    .esports-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Campeonatos responsivos */
+    .championship-timeline::before {
+        display: none;
+    }
+
+    .timeline-item {
+        flex-direction: column !important;
+        gap: 20px;
+    }
+
+    .timeline-marker {
+        margin: 0;
+    }
+
+    .championship-tips {
+        padding: 40px 20px;
+    }
+
+    .tips-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tip-card {
+        padding: 20px;
+    }
+
+    .esports-info-section {
+        padding: 0 20px;
+    }
+
+    .info-cards-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .page-subtitle {
+        font-size: 14px;
     }
 }

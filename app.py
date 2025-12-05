@@ -25,6 +25,16 @@ def op():
 def info():
     return render_template('info.html')
 
+# Rota para a página de E-Sports
+@app.route('/esports')
+def esports():
+    return render_template('esports.html')
+
+# Rota para a página de Campeonatos (Trilha)
+@app.route('/campeonatos')
+def campeonatos():
+    return render_template('campeonatos.html')
+
 # Executar o servidor Flask em modo debug (desenvolvimento)
 if __name__ == "__main__":
     app.run(debug=True) 

@@ -92,13 +92,13 @@
             </a>
 
             <!-- Card para e-sports -->
-            <a href="esports.html" class="card">
+            <a href="{{ url_for('esports') }}" class="card">
                 <img src="{{url_for('static', filename='assets/e-sports.webp')}}" alt="Esports">
             </a>
 
             <!-- Card para campeonatos/torneios -->
-            <a href="campeonatos.html" class="card">
-                <img src="{{url_for('static', filename='assets/trilha.webp')}}" alt="Major">
+            <a href="{{ url_for('campeonatos') }}" class="card">
+                <img src="{{url_for('static', filename='assets/trilha.webp')}}" alt="Campeonatos">
             </a>
 
         </div>

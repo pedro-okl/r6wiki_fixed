@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Sports – Rainbow Six Wiki</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
+</head>
+<body>
+
+    <!-- Sidebar Esquerdo -->
+    <aside class="sidebar">
+        <div class="logo-lateral">R6</div>
+    </aside>
+
+    <!-- Header Principal -->
+    <header class="top-header">
+        <div class="header-content">
+            <h1><span class="rainbow">RAINBOW SIX</span> <span class="wiki-text">WIKI</span></h1>
+        </div>
+        <div class="header-actions">
+            <a href="{{ url_for('account') }}" class="account-button" aria-label="Conta">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
+                </svg>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menu Lateral Direito -->
+    <aside class="right-sidebar" id="rightSidebar">
+        <div class="sidebar-header">
+            <h3>Menu</h3>
+            <button class="close-menu" id="closeMenu" aria-label="Fechar menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                </svg>
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <a href="{{ url_for('index') }}" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+                </svg>
+                <span>Início</span>
+            </a>
+            <a href="{{ url_for('op') }}" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.326 4.754c.083.204.214.34.403.34a.375.375 0 0 0 .25-.129c.155-.207.351-.293.351-.68 0-.593-.234-.804-.532-.909v-.03c.196-.11.408-.313.408-.83 0-.616.262-.977.976-.977.588 0 .954.289.954.85 0 .486-.217.689-.588.689-.179 0-.322-.04-.439-.116l-.004.027c-.005.111-.087.2-.19.2z"/>
+                </svg>
+                <span>Operadores</span>
+            </a>
+            <a href="{{ url_for('info') }}" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
+                </svg>
+                <span>Informações</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Overlay para fechar o menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+        <div class="page-header">
+            <h2 class="page-title">E-Sports de Rainbow Six</h2>
+            <p class="page-subtitle">Conheça os principais campeonatos e competições oficiais</p>
+        </div>
+
+        <!-- Grid de Competições -->
+        <div class="esports-grid">
+            
+            <!-- Rainbow Six Invitational -->
+            <div class="esports-card">
+                <div class="esports-card-header">
+                    <h3>Rainbow Six Invitational</h3>
+                    <span class="badge badge-major">Major</span>
+                </div>
+                <div class="esports-card-body">
+                    <p class="esports-description">
+                        O maior campeonato anual de Rainbow Six Siege. Reúne os melhores times do mundo em uma competição de alto nível.
+                    </p>
+                    <ul class="esports-info-list">
+                        <li><strong>Período:</strong> Anual (Fevereiro)</li>
+                        <li><strong>Participantes:</strong> 32 times</li>
+                        <li><strong>Prize Pool:</strong> US$ 5,000,000+</li>
+                        <li><strong>Região:</strong> Montreal, Canadá</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Six Global Series -->
+            <div class="esports-card">
+                <div class="esports-card-header">
+                    <h3>Six Global Series</h3>
+                    <span class="badge badge-major">Series</span>
+                </div>
+                <div class="esports-card-body">
+                    <p class="esports-description">
+                        Série global que conecta os principais campeonatos regionais de R6. Oferece oportunidades para times ascenderem.
+                    </p>
+                    <ul class="esports-info-list">
+                        <li><strong>Período:</strong> Contínuo ao longo do ano</li>
+                        <li><strong>Participantes:</strong> Times qualificados por região</li>
+                        <li><strong>Regiões:</strong> LATAM, NA, EMEA, APAC</li>
+                        <li><strong>Formato:</strong> Campeonatos regionais</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Six Latin American Championship -->
+            <div class="esports-card">
+                <div class="esports-card-header">
+                    <h3>Six Latin American Championship</h3>
+                    <span class="badge badge-regional">Regional</span>
+                </div>
+                <div class="esports-card-body">
+                    <p class="esports-description">
+                        Campeonato de Rainbow Six para a região da América Latina. Plataforma para times emergentes e estabelecidos.
+                    </p>
+                    <ul class="esports-info-list">
+                        <li><strong>Período:</strong> Múltiplas etapas durante o ano</li>
+                        <li><strong>Participantes:</strong> Times de toda LATAM</li>
+                        <li><strong>Idioma:</strong> Português/Espanhol</li>
+                        <li><strong>Premiação:</strong> Bilhetes para eventos internacionais</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- North American Pro League -->
+            <div class="esports-card">
+                <div class="esports-card-header">
+                    <h3>North American Pro League</h3>
+                    <span class="badge badge-regional">Regional</span>
+                </div>
+                <div class="esports-card-body">
+                    <p class="esports-description">
+                        A principal liga de R6 da América do Norte, contendo os times mais competitivos da região.
+                    </p>
+                    <ul class="esports-info-list">
+                        <li><strong>Período:</strong> Temporadas de 3 meses</li>
+                        <li><strong>Participantes:</strong> 8-10 times profissionais</li>
+                        <li><strong>Formato:</strong> Round-robin + Playoffs</li>
+                        <li><strong>Plataforma:</strong> Twitch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- European Pro League -->
+            <div class="esports-card">
+                <div class="esports-card-header">
+                    <h3>European Pro League</h3>
+                    <span class="badge badge-regional">Regional</span>
+                </div>
+                <div class="esports-card-body">
+                    <p class="esports-description">
+                        Liga profissional de Rainbow Six para a Europa e Médio Oriente. Conhecida pela alta qualidade de jogo.
+                    </p>
+                    <ul class="esports-info-list">
+                        <li><strong>Período:</strong> Temporadas sazonais</li>
+                        <li><strong>Participantes:</strong> 8 times da elite europeia</li>
+                        <li><strong>Qualidade:</strong> Altamente competitiva</li>
+                        <li><strong>Transmissão:</strong> YouTube/Twitch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Asia-Pacific Pro League -->
+            <div class="esports-card">
+                <div class="esports-card-header">
+                    <h3>Asia-Pacific Pro League</h3>
+                    <span class="badge badge-regional">Regional</span>
+                </div>
+                <div class="esports-card-body">
+                    <p class="esports-description">
+                        Liga que conecta os times profissionais de toda a região da Ásia e Pacífico, incluindo Japão e Austrália.
+                    </p>
+                    <ul class="esports-info-list">
+                        <li><strong>Período:</strong> Contínuo com playoffs</li>
+                        <li><strong>Participantes:</strong> Times de múltiplos países</li>
+                        <li><strong>Crescimento:</strong> Mercado emergente dinâmico</li>
+                        <li><strong>Formato:</strong> Regional com pontuação global</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Informações Adicionais -->
+        <div class="esports-info-section">
+            <h3>Como Participar?</h3>
+            <div class="info-cards-row">
+                <div class="info-card-small">
+                    <h4>🎮 Para Times Cassuais</h4>
+                    <p>Participe de qualificatórias abertas e torneios comunitários para ganhar experiência.</p>
+                </div>
+                <div class="info-card-small">
+                    <h4>🏆 Para Times Competitivos</h4>
+                    <p>Inscreva-se nas ligas regionais e trabalhe para chegar aos majores internacionais.</p>
+                </div>
+                <div class="info-card-small">
+                    <h4>📺 Para Espectadores</h4>
+                    <p>Acompanhe as transmissões ao vivo e suporte seus times favoritos nas principais plataformas.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>créditos: link da comunidade r6</p>
+    </footer>
+
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+</body>
+</html>
