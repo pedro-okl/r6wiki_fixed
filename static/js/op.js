@@ -1,19 +1,41 @@
- const menuToggle = document.getElementById('menuToggle');
-        const rightSidebar = document.getElementById('rightSidebar');
-        const closeMenu = document.getElementById('closeMenu');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
+// Seleciona o botão que abre o menu
+const menuToggle = document.getElementById('menuToggle');
 
-        menuToggle.addEventListener('click', () => {
-            rightSidebar.classList.add('active');
-            sidebarOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        });
+// Seleciona a sidebar (menu lateral)
+const rightSidebar = document.getElementById('rightSidebar');
 
-        function closeSidebar() {
-            rightSidebar.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+// Seleciona o botão de fechar dentro da sidebar
+const closeMenu = document.getElementById('closeMenu');
 
-        closeMenu.addEventListener('click', closeSidebar);
-        sidebarOverlay.addEventListener('click', closeSidebar);
+// Seleciona o fundo escuro atrás da sidebar (overlay)
+const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+// Quando clicar no botão de abrir o menu
+menuToggle.addEventListener('click', () => {
+    // Mostra a sidebar adicionando a classe "active"
+    rightSidebar.classList.add('active');
+
+    // Mostra o overlay adicionando a classe "active"
+    sidebarOverlay.classList.add('active');
+
+    // Impede que a página role enquanto o menu estiver aberto
+    document.body.style.overflow = 'hidden';
+});
+
+// Função que fecha a sidebar e o overlay
+function closeSidebar() {
+    // Esconde a sidebar removendo a classe "active"
+    rightSidebar.classList.remove('active');
+
+    // Esconde o overlay removendo a classe "active"
+    sidebarOverlay.classList.remove('active');
+
+    // Libera a rolagem da página
+    document.body.style.overflow = '';
+}
+
+// Fecha o menu ao clicar no botão de fechar
+closeMenu.addEventListener('click', closeSidebar);
+
+// Fecha o menu ao clicar no overlay
+sidebarOverlay.addEventListener('click', closeSidebar);

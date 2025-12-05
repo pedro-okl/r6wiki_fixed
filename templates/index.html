@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Metadados do documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rainbow Six Wiki</title>
+    <!-- Importar arquivo CSS da pasta est\u00e1tica -->
     <link rel="stylesheet" href="{{url_for('static', filename='styles/style.css')}}">
  </head>
  <body>
 
+    <!-- Barra lateral esquerda com logo -->
     <aside class="sidebar">
         <div class="logo-lateral">R6</div>
     </aside>
 
+    <!-- cabeçalho superior -->
     <header class="top-header">
         <div class="header-content">
+            <!-- Titulo com efeito arco-iris -->
             <h1><span class="rainbow">RAINBOW SIX</span> <span class="wiki-text">WIKI</span></h1>
         </div>
+                    <!-- Seção de ações do header (informações do usuário, botão de menu) -->
         <div class="header-actions">
+            
             <div class="user-info" id="userInfo" style="display: none;">
                 <span class="username-display" id="usernameDisplay"></span>
+                <!-- Botão para fazer logout -->
                 <button class="logout-button" id="logoutButton" aria-label="Sair">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
@@ -26,12 +34,14 @@
                     </svg>
                 </button>
             </div>
+            <!-- Botao para ir à página de conta (login) -->
             <a href="{{ url_for('account') }}" class="account-button" id="accountButton" aria-label="Conta">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
                 </svg>
             </a>
+            <!-- Botao para abrir/fechar menu lateral direito (hamburguer) -->
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
@@ -40,17 +50,21 @@
         </div>
     </header>
 
-    <!-- Menu Lateral Direito -->
+    <!-- Menu Lateral Direito (slide-out) -->
     <aside class="right-sidebar" id="rightSidebar">
+        <!-- Cabeçalho do menu com título e botão de fechar -->
         <div class="sidebar-header">
             <h3>Menu</h3>
+            <!-- Botão para fechar o menu -->
             <button class="close-menu" id="closeMenu" aria-label="Fechar menu">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
                 </svg>
             </button>
         </div>
+        <!-- Conteúdo do menu lateral (opções de navegação) -->
         <div class="sidebar-content">
+            <!-- Link para página de informações -->
             <a href="{{ url_for('info') }}" class="info-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2"/>
@@ -60,29 +74,29 @@
         </div>
     </aside>
 
-    <!-- Overlay para fechar o menu -->
+    <!-- Overlay/máscara semitransparente que aparece quando o menu abre -->
     <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
+    <!-- Área principal de conteúdo -->
     <main class="content">
-        
+        <!-- Grid de cards com as opções do site -->
         <div class="grid">
-
-   
+            <!-- Card para operadores (personagens) -->
             <a href="{{ url_for('op') }}" class="card">
                 <img src="{{url_for('static', filename='assets/op.jpg')}}" alt="Deimos">
             </a> 
 
-      
+            <!-- Card para scrim/treino -->
             <a href="{{ url_for('info') }}" class="card">
                 <img src="{{url_for('static', filename='assets/scrim.jpg')}}" alt="Scrims">
             </a>
 
-       
+            <!-- Card para e-sports -->
             <a href="esports.html" class="card">
                 <img src="{{url_for('static', filename='assets/e-sports.webp')}}" alt="Esports">
             </a>
 
-            
+            <!-- Card para campeonatos/torneios -->
             <a href="campeonatos.html" class="card">
                 <img src="{{url_for('static', filename='assets/trilha.webp')}}" alt="Major">
             </a>
@@ -90,12 +104,13 @@
         </div>
     </main>
 
-   
+    <!-- Rodapé do site -->
     <footer>
         <p>créditos: link da comunidade r6</p>
     </footer>
 
-   <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <!-- Importar arquivo JavaScript para lógica do lado do cliente -->
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
 
 
 
