@@ -1,45 +1,49 @@
- const API_BASE_URL = 'http://localhost:5000/api';
+// Sistema de autenticação com localStorage
+class AuthManager {
+    constructor() {
+        this.storageKey = 'r6wiki_users';
+        this.sessionKey = 'r6wiki_session';
+    }
 
-        // Verificar autenticação ao carregar a página
-        window.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const response = await fetch(`${API_BASE_URL}/check-auth`, {
-                    credentials: 'include'
-                });
-                const data = await response.json();
-                
-                if (data.authenticated) {
-                    // Mostrar informações do usuário
-                    document.getElementById('usernameDisplay').textContent = data.user.username;
-                    document.getElementById('userInfo').style.display = 'flex';
-                    document.getElementById('accountButton').style.display = 'none';
-                } else {
-                    // Mostrar botão de conta
-                    document.getElementById('userInfo').style.display = 'none';
-                    document.getElementById('accountButton').style.display = 'flex';
-                }
-            } catch (error) {
-                console.error('Erro ao verificar autenticação:', error);
-            }
-        });
+    isAuthenticated() {
+        const session = JSON.parse(localStorage.getItem(this.sessionKey));
+        return session !== null;
+    }
 
-        // Logout
-        document.getElementById('logoutButton').addEventListener('click', async () => {
-            try {
-                const response = await fetch(`${API_BASE_URL}/logout`, {
-                    method: 'POST',
-                    credentials: 'include'
-                });
-                const data = await response.json();
-                
-                if (data.success) {
-                    // Recarregar a página
-                    window.location.reload();
-                }
-            } catch (error) {
-                console.error('Erro ao fazer logout:', error);
-            }
-        });
+    getCurrentUser() {
+        const session = JSON.parse(localStorage.getItem(this.sessionKey));
+        return session;
+    }
+
+    logout() {
+        localStorage.setItem(this.sessionKey, JSON.stringify(null));
+        return { success: true };
+    }
+}
+
+const authManager = new AuthManager();
+
+// Verificar autenticação ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
+    if (authManager.isAuthenticated()) {
+        const user = authManager.getCurrentUser();
+        // Mostrar informações do usuário
+        document.getElementById('usernameDisplay').textContent = user.username;
+        document.getElementById('userInfo').style.display = 'flex';
+        document.getElementById('accountButton').style.display = 'none';
+    } else {
+        // Mostrar botão de conta
+        document.getElementById('userInfo').style.display = 'none';
+        document.getElementById('accountButton').style.display = 'flex';
+    }
+});
+
+// Logout
+document.getElementById('logoutButton').addEventListener('click', () => {
+    authManager.logout();
+    // Recarregar a página
+    window.location.reload();
+});
 
         // Menu lateral
         const menuToggle = document.getElementById('menuToggle');
