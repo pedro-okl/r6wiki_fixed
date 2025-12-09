@@ -249,8 +249,28 @@ loginFormElement.addEventListener('submit', (e) => {
 });
 
 // Verificar se usuário já está logado ao carregar a página
-window.addEventListener('DOMContentLoaded', () => {
-    if (authManager.isAuthenticated()) {
-        window.location.href = '/';
+function updateHeaderAuthState() {
+    const session = authManager.getCurrentUser();
+    const userInfo = document.getElementById('userInfo');
+    const usernameDisplay = document.getElementById('usernameDisplay');
+    const logoutButton = document.getElementById('logoutButton');
+
+    if (session && userInfo && usernameDisplay) {
+        userInfo.style.display = 'flex';
+        usernameDisplay.textContent = session.username || session.email || '';
+    } else if (userInfo) {
+        userInfo.style.display = 'none';
     }
+
+    if (logoutButton) {
+        logoutButton.addEventListener('click', () => {
+            authManager.logout();
+            updateHeaderAuthState();
+            showMessage('Você saiu da conta', 'success');
+        });
+    }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    updateHeaderAuthState();
 });

@@ -217,6 +217,23 @@ body {
     right: 0;
 }
 
+/* botão de adicionar operador - herda visual de account-button, só pequenos ajustes */
+.add-op-button { margin-left: 18px; padding: 8px 12px; border-radius: 10px; font-weight: 600; }
+
+/* Modal básico para manter a estética do site (cores e bordas) */
+.modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 1200; align-items: center; justify-content: center; }
+.modal-overlay.active { display: flex; }
+.modal { max-width: 680px; width: 100%; background: linear-gradient(180deg, #0f0f0f, #141414); border: 2px solid rgba(255,0,0,0.12); border-radius: 12px; padding: 20px; box-shadow: 0 12px 36px rgba(0,0,0,0.6); }
+.modal h3 { margin: 0 0 12px 0; color: #fff; }
+.modal-close { position: absolute; right: 18px; top: 12px; background: transparent; border: none; color: #ff6666; font-size: 20px; cursor: pointer; }
+.modal-form .form-row { margin-bottom: 12px; }
+.modal-form input[type="text"], .modal-form textarea, .modal-form select { width: 100%; padding: 10px 12px; background: rgba(20,20,20,0.7); border: 1px solid rgba(255,255,255,0.04); color: #fff; border-radius: 8px; }
+.form-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:8px }
+.modal .submit-button { background: linear-gradient(90deg,#ff4444,#ff0000); border:none; color:#fff; padding:10px 14px; border-radius:8px; font-weight:700 }
+.modal .cancel-button { background:transparent; border:1px solid rgba(255,255,255,0.06); color:#ddd; padding:8px 12px; border-radius:8px }
+
+@media (max-width:640px){ .modal{ padding:16px; margin:12px } .add-op-button{ margin-left:0 } }
+
 .sidebar-header {
     padding: 25px 20px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);

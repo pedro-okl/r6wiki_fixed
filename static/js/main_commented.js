@@ -46,23 +46,23 @@ document.getElementById('logoutButton').addEventListener('click', async () => {
 
 // ========== LÓGICA DO MENU LATERAL ==========
 // Obter referências aos elementos do menu
-const menuToggle = document.getElementById('menuToggle'); // Botão hamburguer
-const rightSidebar = document.getElementById('rightSidebar'); // Menu lateral direito
-const closeMenu = document.getElementById('closeMenu'); // Botão de fechar menu
-const sidebarOverlay = document.getElementById('sidebarOverlay'); // Máscara do fundo
+const menuToggle = document.getElementById('menuToggle'); 
+const rightSidebar = document.getElementById('rightSidebar'); 
+const closeMenu = document.getElementById('closeMenu'); 
+const sidebarOverlay = document.getElementById('sidebarOverlay');
 
 // Evento ao clicar no botão hamburguer: abrir menu
 menuToggle.addEventListener('click', () => {
-    rightSidebar.classList.add('active'); // Mostrar menu
-    sidebarOverlay.classList.add('active'); // Mostrar máscara
-    document.body.style.overflow = 'hidden'; // Desabilitar scroll da página
+    rightSidebar.classList.add('active'); 
+    sidebarOverlay.classList.add('active'); 
+    document.body.style.overflow = 'hidden'; 
 });
 
 // Função para fechar o menu
 function closeSidebar() {
-    rightSidebar.classList.remove('active'); // Ocultar menu
-    sidebarOverlay.classList.remove('active'); // Ocultar máscara
-    document.body.style.overflow = ''; // Habilitar scroll da página
+    rightSidebar.classList.remove('active'); 
+    sidebarOverlay.classList.remove('active');
+    document.body.style.overflow = ''; 
 }
 
 // Evento ao clicar no botão de fechar menu

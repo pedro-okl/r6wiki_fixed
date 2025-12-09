@@ -17,8 +17,16 @@
             <h1><span class="rainbow">RAINBOW SIX</span> <span class="wiki-text">WIKI</span></h1>
         </div>
 
-
         <div class="header-actions">
+            <div class="user-info" id="userInfo" style="display: none;">
+                <span class="username-display" id="usernameDisplay"></span>
+                <button class="logout-button" id="logoutButton" aria-label="Sair">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/>
+                    </svg>
+                </button>
+            </div>
             <a href="{{ url_for('account') }}" class="account-button" aria-label="Conta">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
@@ -60,6 +68,25 @@
                 </svg>
                 <span>Informações</span>
             </a>
+            <a href="{{ url_for('esports') }}" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M3 2h10v2H3zM2 6h12v2H2zM3 10h10v2H3z"/>
+                </svg>
+                <span>E-Sports</span>
+            </a>
+            <a href="{{ url_for('campeonatos') }}" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0l2 4h4l-3 3 1 5-4-2-4 2 1-5L2 4h4z"/>
+                </svg>
+                <span>Campeonatos</span>
+            </a>
+            <a href="{{ url_for('account') }}" class="info-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8"/>
+                </svg>
+                <span>Conta</span>
+            </a>
         </div>
 
     </aside>
@@ -71,6 +98,8 @@
         <div class="page-header">
             <h2 class="page-title">Operadores</h2>
             <p class="page-subtitle">Conheça os operadores de Rainbow Six Siege</p>
+            <!-- Botão para adicionar operador (estética herdada de account-button) -->
+            <button id="addOpButton" class="account-button add-op-button" aria-label="Adicionar operador">+ Adicionar operador</button>
         </div>
 
         <div class="op-list">
@@ -117,6 +146,39 @@
     <footer>
         <p>créditos: link da comunidade r6</p>
     </footer>
+
+    <!-- Modal de adicionar operador -->
+    <div id="opModalOverlay" class="modal-overlay" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="opModalTitle">
+            <button id="opModalClose" class="modal-close" aria-label="Fechar">×</button>
+            <h3 id="opModalTitle">Adicionar Operador</h3>
+            <form id="addOpForm" class="modal-form">
+                <div class="form-row">
+                    <label for="opName">Nome</label>
+                    <input id="opName" name="name" type="text" required placeholder="Ex: Thermite">
+                </div>
+                <div class="form-row">
+                    <label for="opRole">Função</label>
+                    <select id="opRole" name="role">
+                        <option value="attacker">Atacante</option>
+                        <option value="defender">Defensor</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="opGadget">Gadget</label>
+                    <input id="opGadget" name="gadget" type="text" placeholder="Ex: Cargas Exotérmicas">
+                </div>
+                <div class="form-row">
+                    <label for="opDescription">Descrição breve</label>
+                    <textarea id="opDescription" name="description" rows="4" placeholder="Breve descrição"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="button" id="opCancel" class="cancel-button">Cancelar</button>
+                    <button type="submit" class="submit-button">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <script src="{{url_for('static', filename='js/op.js')}}"></script>
 
